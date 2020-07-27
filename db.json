@@ -1,0 +1,40 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Changed network card at station 007",
+      "attention": false,
+      "tech": "Huey Lewis",
+      "date": "2020-07-26T01:39:52.190Z"
+    },
+    {
+      "message": "Fixed Screen work station 002",
+      "attention": false,
+      "tech": "Vader Smith",
+      "date": "2020-07-25T18:11:35.561Z",
+      "id": 2
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstName": "Vader",
+      "lastName": "Smith"
+    },
+    {
+      "id": 2,
+      "firstName": "Tom",
+      "lastName": "Jones"
+    },
+    {
+      "id": 3,
+      "firstName": "Jon",
+      "lastName": "Snow"
+    },
+    {
+      "firstName": "Huey",
+      "lastName": "Lewis",
+      "id": 4
+    }
+  ]
+}
