@@ -8,11 +8,13 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     SEARCH_LOGS,
+    CLEAR_SEARCH
 } from '../actions/types'
 import { logDOM } from '@testing-library/react'
     
 const initialState = {
     logs: null,
+    filtered: null,
     current: null,
     loading: false,
     error: null
@@ -45,9 +47,17 @@ export default (state = initialState, action) => {
                     log.id === action.payload.id ? action.payload : log)
             }
         case SEARCH_LOGS:
+            const regex = new RegExp(`${action.payload}`, 'gi')  //global, case insensitive
             return{
                 ...state,
-                logs: action.payload
+                filtered: state.logs.filter(log => {
+                   return log.tech.match(regex) || log._id.match(regex) || log.message.match(regex) || log.date.match(regex);
+                }),
+            }
+        case CLEAR_SEARCH:
+            return{
+                ...state,
+                filtered: null,
             }
         case SET_CURRENT:
             return{
@@ -70,7 +80,6 @@ export default (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
-       
         default:
             return{
                 ...state

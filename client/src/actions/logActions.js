@@ -9,6 +9,7 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     SEARCH_LOGS,
+    CLEAR_SEARCH
 } from './types'
 
 /*export const getLogs = () => {
@@ -126,27 +127,22 @@ export const updateLog = (log) => async (dispatch) => {
     }
 }
 
-//Search SERVER logs
-export const searchLogs = (text) => async (dispatch) => {
-    try {
-        
-        setLoading()
-
-        const res = await fetch(`/api/logs/query/${text}`)
-        const data = await res.json()
-
-        dispatch({
+//Search logs
+export const searchLogs = (text) => {
+    setLoading()
+    return({
             type: SEARCH_LOGS,
-            payload: data
-        })
-        
-    } catch (err) {
-        dispatch({
-            type: LOGS_ERROR,
-            payload: err.message
-        })
-    }
+            payload: text
+    })
 }
+
+//Clear Search
+export const clearSearch = () => {
+    return({
+        type: CLEAR_SEARCH,
+    })
+}
+
 
 //Set current log
 export const setCurrent = (log) => {

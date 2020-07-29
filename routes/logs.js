@@ -3,25 +3,6 @@ const router = express.Router()
 
 const Log = require('../models/Log')
 
-// @desc    Search all logs
-// @route   GET /api/query/logs
-// @access  Public
-router.get('/query/:text', async (req, res) => { 
-  try {
-    const logs = await Log.find({
-      text:req.params.text
-    })
-
-    return res.status(200).json({
-      data: logs
-    });
-  } catch (err) {
-    return res.status(500).json({
-      error: 'Server Error'
-    });
-  }
-})
-
 // @desc    Get all logs
 // @route   GET /api/logs
 // @access  Public
