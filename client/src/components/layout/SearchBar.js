@@ -9,8 +9,7 @@ const SearchBar = ({ log: { logs, filtered }, searchLogs, clearSearch }) => {
 
     useEffect(() => {
         if(filtered === null){
-            text.current.value =''
-        }
+            text.current.value =''}
         //eslint-disable-next-line
     },[])
 
@@ -22,10 +21,8 @@ const SearchBar = ({ log: { logs, filtered }, searchLogs, clearSearch }) => {
         }
     }
     const onClick = () => {
-        if (text.current.value !== ''){
-          clearSearch()
-        }
- 
+        clearSearch()
+        text.current.value = ''
     }
 
     return (
